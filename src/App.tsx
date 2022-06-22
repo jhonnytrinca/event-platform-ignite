@@ -1,5 +1,5 @@
 import { gql, useQuery } from '@apollo/client';
-import { MainPage } from './components/pages/MainPage';
+import { MainPage } from './pages/MainPage';
 
 const GET_LESSONS_QUERY = gql`
   query {
