@@ -16,10 +16,7 @@ export const Lesson = ({ title, slug, availableAt, type }: LessonProps) => {
     locale: ptBR
   });
   const { slug: slugParam } = useParams<{ slug: string }>();
-
   const isActiveLesson = slugParam === slug;
-  console.log(isActiveLesson);
-  console.log(slugParam);
 
   return (
     <Link to={`/event/lesson/${slug}`} className='group'>
