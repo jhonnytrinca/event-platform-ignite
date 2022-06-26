@@ -2,15 +2,22 @@ import { CheckCircle, Lock } from 'phosphor-react';
 import { isPast, format } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 import { Link, useParams } from 'react-router-dom';
+import { sidebarProps } from '../Header';
 
-interface LessonProps {
+interface LessonProps extends sidebarProps {
   title: string;
   slug: string;
   availableAt: Date;
   type: 'live' | 'class';
 }
 
-export const Lesson = ({ title, slug, availableAt, type }: LessonProps) => {
+export const Lesson = ({
+  title,
+  slug,
+  availableAt,
+  type,
+  setSidebarOpen
+}: LessonProps) => {
   const isLessonAvailable = isPast(availableAt);
   const availableDate = format(availableAt, "EEEE' • 'd' de 'MMMM' • 'k'h'mm", {
     locale: ptBR
@@ -19,7 +26,11 @@ export const Lesson = ({ title, slug, availableAt, type }: LessonProps) => {
   const isActiveLesson = slugParam === slug;
 
   return (
-    <Link to={`/event/lesson/${slug}`} className='group'>
+    <Link
+      to={`/event/lesson/${slug}`}
+      className='group'
+      onClick={() => setSidebarOpen((prev: boolean) => !prev)}
+    >
       <span className='text-gray-300'>{availableDate}</span>
       <div
         className={`rounded border border-gray-500 p-4 mt-2 group-hover:border-green-500 ${
