@@ -3,6 +3,7 @@ import { isPast, format } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 import { Link, useParams } from 'react-router-dom';
 import { sidebarProps } from '../Header';
+import { isNotMobile } from '../../pages/MainPage';
 
 interface LessonProps extends sidebarProps {
   title: string;
@@ -29,7 +30,7 @@ export const Lesson = ({
     <Link
       to={`/event/lesson/${slug}`}
       className='group'
-      onClick={() => setSidebarOpen((prev: boolean) => !prev)}
+      onClick={() => !isNotMobile && setSidebarOpen((prev: boolean) => !prev)}
     >
       <span className='text-gray-300'>{availableDate}</span>
       <div

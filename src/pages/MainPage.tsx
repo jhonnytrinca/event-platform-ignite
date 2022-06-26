@@ -1,16 +1,18 @@
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Sidebar, Header, Video } from '../components';
+
+export const isNotMobile = window.innerWidth >= 1024;
+//1024px lg breakpoint on Tailwind
 
 export const MainPage = () => {
   const { slug } = useParams<{
     slug: string;
   }>();
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(isNotMobile);
 
   useEffect(() => {
-    //1024px lg breakpoint on Tailwind
-    setSidebarOpen(window.innerWidth >= 1024);
+    setSidebarOpen(isNotMobile);
   }, []);
 
   return (
