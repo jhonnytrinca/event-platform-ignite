@@ -3,6 +3,7 @@ import {
   CaretRight,
   DiscordLogo,
   FileArrowDown,
+  Image,
   Lightning
 } from 'phosphor-react';
 import '@vime/core/themes/default.css';
@@ -33,8 +34,8 @@ export const Video = ({ lessonSlug }: VideoProps) => {
       </div>
 
       <div className='p-8 max-w-[1100px] mx-auto'>
-        <div className='flex items-start gap-16'>
-          <div className='flex-1'>
+        <div className='flex flex-col md:flex-row items-start gap-8 md:gap-16'>
+          <div className='w-full flex-1'>
             <h1 className='text-2xl font-bold'>{data?.lesson.title}</h1>
             <p className='mt-4 text-gray-200 leading-relaxed'>
               {data.lesson.description}
@@ -58,7 +59,7 @@ export const Video = ({ lessonSlug }: VideoProps) => {
             )}
           </div>
 
-          <div className='flex flex-col gap-4'>
+          <div className='flex flex-col w-full md:w-[26%] gap-4'>
             <a
               href='#'
               className='p-4 tex-sm bg-green-500 flex items-center rounded font-bold uppercase gap-2 justify-center hover:bg-green-700 transition-colors'
@@ -76,7 +77,7 @@ export const Video = ({ lessonSlug }: VideoProps) => {
           </div>
         </div>
 
-        <div className='gap-8 mt-20 grid grid-cols-2'>
+        <div className='gap-4 md:gap-8 mt-10 md:mt-20 grid md:grid-cols-2'>
           <a
             href='#'
             className='bg-gray-700 rounded overflow-hidden flex items-stretch gap-6 hover:bg-gray-600 transition-colors'
@@ -84,9 +85,11 @@ export const Video = ({ lessonSlug }: VideoProps) => {
             <div className='bg-green-700 h-full p-6 flex items-center'>
               <FileArrowDown size={40} />
             </div>
-            <div className='py-6 leading-relaxed'>
-              <strong className='text-2xl'>Material complementar</strong>
-              <p className='text-sm text-gray-200 mt-2'>
+            <div className='py-3 md:py-6 leading-relaxed'>
+              <strong className='text-lg md:text-2xl'>
+                Material complementar
+              </strong>
+              <p className='text-xs md:text-sm  text-gray-200 mt-2'>
                 Acesse o material complementar para acelerar o seu
                 desenvolvimento
               </p>
@@ -100,11 +103,13 @@ export const Video = ({ lessonSlug }: VideoProps) => {
             className='bg-gray-700 rounded overflow-hidden flex items-stretch gap-6 hover:bg-gray-600 transition-colors'
           >
             <div className='bg-green-700 h-full p-6 flex items-center'>
-              <FileArrowDown size={40} />
+              <Image size={40} />
             </div>
-            <div className='py-6 leading-relaxed'>
-              <strong className='text-2xl'>Wallpapers exclusivos</strong>
-              <p className='text-sm text-gray-200 mt-2'>
+            <div className='py-3 md:py-6 leading-relaxed'>
+              <strong className='text-lg md:text-2xl'>
+                Wallpapers exclusivos
+              </strong>
+              <p className='text-xs md:text-sm text-gray-200 mt-2'>
                 Baixe wallpapers exclusivos do Ignite Lab e personalize a sua
                 máquina
               </p>
